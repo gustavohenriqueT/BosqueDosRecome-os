@@ -1,0 +1,24 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Ignorar pastas temporárias do Godot
+.import/
+.export/
+
+# Ignorar configurações locais do editor
+.editor_settings-3.tres
+.editor_settings-4.tres
+
+# Ignorar arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar cache
+.cache/
+
+# Ignorar builds exportadas
+*.exe
+*.zip
+*.apk
+*.pck
