@@ -1,3 +1,4 @@
+#DSL
 extends Node
 
 func _reset_aura(node: Node2D):

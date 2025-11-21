@@ -1,3 +1,4 @@
+#DSL
 extends Node
 
 var dsl_parser = preload("res://scripts/aura_dsl_parser.gd").new()
