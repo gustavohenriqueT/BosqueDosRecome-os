@@ -1,0 +1,4 @@
+fish_trash | +5 glow_blue
+pick_trash | +3 glow_yellow
+plant | +2 green_pulse
+harvest | +8 gold_flash
