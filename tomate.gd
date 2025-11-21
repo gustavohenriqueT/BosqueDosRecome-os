@@ -1,33 +1,74 @@
 extends Area2D
 
+var lumi_ref: Node2D = null
+var aura_dada := false
+var estado := "vazio"
+@export var aura_reward := 5
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if lumi_ref and estado == "vazio" and Input.is_action_just_pressed("ui_accept"):
+		if lumi_ref.has_node("AuraController"):
+			lumi_ref.get_node("AuraController").emit_event("plant")
+		plantar_tomate()
 
-
+	if lumi_ref and estado == "maduro" and Input.is_action_just_pressed("colher"):
+		if lumi_ref.has_node("AuraController"):
+			lumi_ref.get_node("AuraController").emit_event("harvest")	
+		colher_tomate()
+		
 func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Lumi":
+		lumi_ref = body
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.name == "Lumi":
+		lumi_ref = null
+
+func plantar_tomate():
+	if Dados.sementeTomate <= 0:
+		print("Sem sementes de tomate.")
+		return
+
+	estado = "crescendo"
+	Dados.sementeTomate -= 1
+
 	show()
 	$AnimatedSprite2D.frame = 0
-	await get_tree().create_timer(3.0).timeout
+
+	await get_tree().create_timer(4.0).timeout
 	$AnimatedSprite2D.frame = 1
-	await get_tree().create_timer(3.0).timeout
-	await get_tree().create_timer(3.0).timeout
+	
+	await get_tree().create_timer(4.0).timeout
+	$AnimatedSprite2D.frame = 2
+	
+	await get_tree().create_timer(4.0).timeout
+	$AnimatedSprite2D.frame = 3
+	
+	await get_tree().create_timer(4.0).timeout
 	$AnimatedSprite2D.frame = 4
-	await get_tree().create_timer(3.0).timeout
+	
+	await get_tree().create_timer(4.0).timeout
 	$AnimatedSprite2D.frame = 5
+	estado = "maduro"
 
-	while $AnimatedSprite2D.frame == 5:
-		print("pode colher")
-		await get_tree().create_timer(1.0).timeout
+	_dar_aura()
 
+func _dar_aura():
+	if aura_dada:
+		return
 
-func _on_mouse_entered() -> void:
-	if $AnimatedSprite2D.frame == 5:
-		print("colhido!")
-		$AnimatedSprite2D.frame = 0
+	aura_dada = true
+	Dados.canteiros_concluidos += 1
+
+	var player = get_tree().get_root().find_child("Lumi", true, false)
+	if player:
+		player.add_aura(aura_reward)
+		print("Ganhou", aura_reward, "de aura por plantar aqui.")
+
+func colher_tomate():
+	print("Tomate colhido!")
+	Dados.tomate += 1
+	queue_free()

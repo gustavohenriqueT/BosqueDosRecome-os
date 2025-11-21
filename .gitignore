@@ -1,24 +1,33 @@
-# Godot 4+ specific ignores
 .godot/
-/android/
 
-# Ignorar pastas temporárias do Godot
-.import/
-.export/
+*.import
 
-# Ignorar configurações locais do editor
-.editor_settings-3.tres
-.editor_settings-4.tres
+*.tmp
+*.fscache
+*.tmp~
+*.swp
 
-# Ignorar arquivos de sistema
-.DS_Store
-Thumbs.db
+*.gd~ 
+*.tscn~ 
+*.tres~
 
-# Ignorar cache
-.cache/
+*.uid
 
-# Ignorar builds exportadas
-*.exe
-*.zip
-*.apk
-*.pck
+**/.Trash-*
+
+.vscode/
+*.log
+*.orig
+
+# ============================================
+# COISAS QUE DEVEM SER VERSIONADAS NORMALMENTE:
+# (não ignore!)
+#
+# - Scripts .gd
+# - Cenas .tscn / .tres
+# - Texturas .png / .jpg
+# - Sons .wav / .mp3
+# - Shaders .shader / .gdshader
+# - Fontes .ttf / .otf
+# - Qualquer asset do jogo
+# ============================================
