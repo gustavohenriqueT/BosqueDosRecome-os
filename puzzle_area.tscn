@@ -1,0 +1,636 @@
+[gd_scene load_steps=36 format=3 uid="uid://m83tlqvbgk7v"]
+
+[ext_resource type="Script" uid="uid://bnh0h2po578ji" path="res://puzzle_area.gd" id="1_ktmb1"]
+[ext_resource type="Texture2D" uid="uid://ojo435xoicyh" path="res://LixoLata.png" id="2_ktmb1"]
+[ext_resource type="Script" uid="uid://bncf65f4gog2x" path="res://lixo_1.gd" id="3_01ppx"]
+[ext_resource type="Texture2D" uid="uid://ob4buy0oxqm3" path="res://LixoGarrafa.png" id="3_3b1vy"]
+[ext_resource type="Script" uid="uid://p0lpmblc1bc7" path="res://lixo_15.gd" id="4_kljns"]
+[ext_resource type="Script" uid="uid://bxhru5wyk7fcf" path="res://lixo_2.gd" id="5_3cv5m"]
+[ext_resource type="Script" uid="uid://du5cx1eftepyk" path="res://lixo_3.gd" id="6_2r3qg"]
+[ext_resource type="Texture2D" uid="uid://dj28q1ksh1gt5" path="res://LixoMaca.png" id="6_3b1vy"]
+[ext_resource type="Script" uid="uid://c2ygun6fubtk7" path="res://lixo_6.gd" id="6_jklee"]
+[ext_resource type="Script" uid="uid://bootptt6yt335" path="res://lixo_16.gd" id="7_b3yxh"]
+[ext_resource type="Script" uid="uid://3peeu5eexb4b" path="res://lixo_9.gd" id="7_n2xos"]
+[ext_resource type="Script" uid="uid://di5hlnk3bqfrk" path="res://lixo_4.gd" id="8_0jybx"]
+[ext_resource type="Texture2D" uid="uid://bcixfs5f4usyb" path="res://papel.png" id="8_sfhsd"]
+[ext_resource type="Texture2D" uid="uid://vqagep5qu8dp" path="res://LixoAmarela.png" id="9_mir00"]
+[ext_resource type="Script" uid="uid://c103j24b08knw" path="res://lixo_5.gd" id="9_ntwyu"]
+[ext_resource type="Script" uid="uid://exmrt57hfmcr" path="res://amarela.gd" id="9_sfhsd"]
+[ext_resource type="Script" uid="uid://b24pnbwus0w1n" path="res://lixo_12.gd" id="9_vo3qk"]
+[ext_resource type="Texture2D" uid="uid://ccrvj8acdyxly" path="res://LixoAzul.png" id="10_kljns"]
+[ext_resource type="Texture2D" uid="uid://d34okytr2yowm" path="res://LixoVerde.png" id="11_jklee"]
+[ext_resource type="Script" uid="uid://c48xyuqrn0fn4" path="res://azul.gd" id="11_mir00"]
+[ext_resource type="Texture2D" uid="uid://cvbwwqysjnp58" path="res://LixoVermelha.png" id="12_b3yxh"]
+[ext_resource type="Script" uid="uid://vjg2ktfx8ti" path="res://verde.gd" id="13_kljns"]
+[ext_resource type="Script" uid="uid://cc10v7ifmdxad" path="res://lixo_7.gd" id="13_u0tfg"]
+[ext_resource type="Script" uid="uid://lvj52n33t7tt" path="res://vermelha.gd" id="15_jklee"]
+[ext_resource type="Script" uid="uid://d36ylb0ps5tyy" path="res://lixo_13.gd" id="15_l1dqg"]
+[ext_resource type="Script" uid="uid://syfe0bxnkxh" path="res://lixo_8.gd" id="15_lb74w"]
+[ext_resource type="Script" uid="uid://cvn5ewx56xo06" path="res://lixo_14.gd" id="16_ia3m3"]
+[ext_resource type="Script" uid="uid://dhn22epq1ty0l" path="res://lixo_11.gd" id="19_jcxgx"]
+[ext_resource type="Script" uid="uid://du5geq6orjn4e" path="res://lixo_10.gd" id="20_jps1t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jps1t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbhmv"]
+size = Vector2(247, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqyi4"]
+size = Vector2(6.9375, 4.6875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01ppx"]
+size = Vector2(11.5, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r3qg"]
+size = Vector2(7, 6.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6vrh"]
+size = Vector2(10.71875, 16)
+
+[node name="PuzzleArea_Limpeza" type="Area2D"]
+script = ExtResource("1_ktmb1")
+
+[node name="MensagemFinal" type="Label" parent="."]
+visible = false
+modulate = Color(1, 0.8509804, 0.23921569, 1)
+self_modulate = Color(1, 0.8509804, 0.23921569, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jps1t")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(126, 60)
+shape = SubResource("RectangleShape2D_gbhmv")
+
+[node name="Lixos" type="Node2D" parent="."]
+position = Vector2(-4, 0)
+
+[node name="Lixo1" type="Area2D" parent="Lixos"]
+position = Vector2(120, 39)
+script = ExtResource("3_01ppx")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo1"]
+position = Vector2(-7, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo1"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo32" type="Area2D" parent="Lixos"]
+position = Vector2(125, 104)
+script = ExtResource("3_01ppx")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo32"]
+position = Vector2(-7, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo32"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo15" type="Area2D" parent="Lixos"]
+position = Vector2(56, 57)
+script = ExtResource("4_kljns")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo15"]
+position = Vector2(-7, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo15"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo2" type="Area2D" parent="Lixos"]
+position = Vector2(168, 102)
+script = ExtResource("5_3cv5m")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo2"]
+position = Vector2(-1.0000043, -0.24999875)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo2"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo3" type="Area2D" parent="Lixos"]
+position = Vector2(192, 36)
+script = ExtResource("6_2r3qg")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo3"]
+position = Vector2(-7, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo3"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo30" type="Area2D" parent="Lixos"]
+position = Vector2(111, 62)
+script = ExtResource("6_2r3qg")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo30"]
+position = Vector2(-7, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo30"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo21" type="Area2D" parent="Lixos"]
+position = Vector2(158, 35)
+script = ExtResource("6_2r3qg")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo21"]
+position = Vector2(-7, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo21"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo4" type="Area2D" parent="Lixos"]
+position = Vector2(77, 78)
+script = ExtResource("8_0jybx")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo4"]
+position = Vector2(-1.0000043, -0.24999875)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo4"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo5" type="Area2D" parent="Lixos"]
+position = Vector2(56, 32)
+script = ExtResource("9_ntwyu")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo5"]
+position = Vector2(-1.0000043, -0.24999875)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo5"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo12" type="Area2D" parent="Lixos"]
+position = Vector2(56, 32)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo12"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo12"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo27" type="Area2D" parent="Lixos"]
+position = Vector2(207, 13)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo27"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo27"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo33" type="Area2D" parent="Lixos"]
+position = Vector2(168, 32)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo33"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo33"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo34" type="Area2D" parent="Lixos"]
+position = Vector2(94, 69)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo34"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo34"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo35" type="Area2D" parent="Lixos"]
+position = Vector2(56, 71)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo35"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo35"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo28" type="Area2D" parent="Lixos"]
+position = Vector2(253, 4)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo28"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo28"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo17" type="Area2D" parent="Lixos"]
+position = Vector2(48, -25)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo17"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo17"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo25" type="Area2D" parent="Lixos"]
+position = Vector2(213, 46)
+script = ExtResource("9_vo3qk")
+
+[node name="Lixo2" type="Sprite2D" parent="Lixos/Lixo25"]
+position = Vector2(-23, 39)
+scale = Vector2(0.56249976, 0.4531251)
+texture = ExtResource("3_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo25"]
+position = Vector2(-23, 39)
+shape = SubResource("RectangleShape2D_01ppx")
+
+[node name="Lixo6" type="Area2D" parent="Lixos"]
+position = Vector2(165, 67)
+script = ExtResource("6_jklee")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo6"]
+position = Vector2(-6, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo6"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo22" type="Area2D" parent="Lixos"]
+position = Vector2(221, 87)
+script = ExtResource("6_jklee")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo22"]
+position = Vector2(-6, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo22"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo16" type="Area2D" parent="Lixos"]
+position = Vector2(136, 87)
+script = ExtResource("7_b3yxh")
+
+[node name="Lixo1" type="Sprite2D" parent="Lixos/Lixo16"]
+position = Vector2(-6, -2)
+scale = Vector2(0.62499976, 0.56249994)
+texture = ExtResource("2_ktmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo16"]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo7" type="Area2D" parent="Lixos"]
+position = Vector2(207, 63)
+script = ExtResource("13_u0tfg")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo7"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo7"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo13" type="Area2D" parent="Lixos"]
+position = Vector2(113, 98)
+script = ExtResource("15_l1dqg")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo13"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo13"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo29" type="Area2D" parent="Lixos"]
+position = Vector2(120, 74)
+script = ExtResource("15_l1dqg")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo29"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo29"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo19" type="Area2D" parent="Lixos"]
+position = Vector2(62, 98)
+script = ExtResource("15_l1dqg")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo19"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo19"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo14" type="Area2D" parent="Lixos"]
+position = Vector2(230, 25)
+script = ExtResource("16_ia3m3")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo14"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo14"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo31" type="Area2D" parent="Lixos"]
+position = Vector2(230, 25)
+script = ExtResource("16_ia3m3")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo31"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo31"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo37" type="Area2D" parent="Lixos"]
+position = Vector2(239, 69)
+script = ExtResource("16_ia3m3")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo37"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo37"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo26" type="Area2D" parent="Lixos"]
+position = Vector2(230, 102)
+script = ExtResource("16_ia3m3")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo26"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo26"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo20" type="Area2D" parent="Lixos"]
+position = Vector2(198, 15)
+script = ExtResource("16_ia3m3")
+
+[node name="Lixo7" type="Sprite2D" parent="Lixos/Lixo20"]
+position = Vector2(-15.999998, 0)
+scale = Vector2(0.43749988, 0.39062494)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo20"]
+position = Vector2(-17, -1)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo8" type="Area2D" parent="Lixos"]
+position = Vector2(90, 43)
+script = ExtResource("15_lb74w")
+
+[node name="Lixo8" type="Sprite2D" parent="Lixos/Lixo8"]
+position = Vector2(42, 14.999999)
+scale = Vector2(0.45312467, 0.40625003)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo8"]
+position = Vector2(41, 14)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo36" type="Area2D" parent="Lixos"]
+position = Vector2(114, 98)
+script = ExtResource("15_lb74w")
+
+[node name="Lixo8" type="Sprite2D" parent="Lixos/Lixo36"]
+position = Vector2(42, 14.999999)
+scale = Vector2(0.45312467, 0.40625003)
+texture = ExtResource("6_3b1vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo36"]
+position = Vector2(41, 14)
+shape = SubResource("RectangleShape2D_pqyi4")
+
+[node name="Lixo9" type="Area2D" parent="Lixos"]
+script = ExtResource("7_n2xos")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixos/Lixo9"]
+position = Vector2(85, 50)
+scale = Vector2(0.90625, 0.8828125)
+texture = ExtResource("8_sfhsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo9"]
+position = Vector2(85, 51)
+shape = SubResource("RectangleShape2D_2r3qg")
+
+[node name="Lixo10" type="Area2D" parent="Lixos"]
+position = Vector2(0, 3)
+script = ExtResource("20_jps1t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixos/Lixo10"]
+position = Vector2(116, 13)
+scale = Vector2(0.8593752, 0.859375)
+texture = ExtResource("8_sfhsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo10"]
+position = Vector2(116, 13)
+shape = SubResource("RectangleShape2D_2r3qg")
+
+[node name="Lixo23" type="Area2D" parent="Lixos"]
+position = Vector2(97, 36)
+script = ExtResource("20_jps1t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixos/Lixo23"]
+position = Vector2(116, 13)
+scale = Vector2(0.8593752, 0.859375)
+texture = ExtResource("8_sfhsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo23"]
+position = Vector2(116, 13)
+shape = SubResource("RectangleShape2D_2r3qg")
+
+[node name="Lixo24" type="Area2D" parent="Lixos"]
+position = Vector2(23, 4)
+script = ExtResource("20_jps1t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixos/Lixo24"]
+position = Vector2(116, 13)
+scale = Vector2(0.8593752, 0.859375)
+texture = ExtResource("8_sfhsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo24"]
+position = Vector2(116, 13)
+shape = SubResource("RectangleShape2D_2r3qg")
+
+[node name="Lixo11" type="Area2D" parent="Lixos"]
+position = Vector2(4, 4)
+script = ExtResource("19_jcxgx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixos/Lixo11"]
+position = Vector2(83, 27)
+scale = Vector2(0.84375, 0.84375)
+texture = ExtResource("8_sfhsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo11"]
+position = Vector2(83, 27)
+shape = SubResource("RectangleShape2D_2r3qg")
+
+[node name="Lixo18" type="Area2D" parent="Lixos"]
+position = Vector2(-54, 13)
+script = ExtResource("19_jcxgx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixos/Lixo18"]
+position = Vector2(83, 27)
+scale = Vector2(0.84375, 0.84375)
+texture = ExtResource("8_sfhsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Lixo18"]
+position = Vector2(83, 27)
+shape = SubResource("RectangleShape2D_2r3qg")
+
+[node name="Lixeiras" type="Node2D" parent="."]
+
+[node name="Amarela" type="Area2D" parent="Lixeiras"]
+script = ExtResource("9_sfhsd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lixeiras/Amarela"]
+position = Vector2(93, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="LixeiraAmarela" type="Sprite2D" parent="Lixeiras/Amarela"]
+position = Vector2(92.86063, 7.0499988)
+scale = Vector2(0.8837111, 0.871875)
+texture = ExtResource("9_mir00")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lixeiras/Amarela"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Amarela/StaticBody2D"]
+position = Vector2(93, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="Azul" type="Area2D" parent="Lixeiras"]
+script = ExtResource("11_mir00")
+
+[node name="LixeiraAzul" type="Sprite2D" parent="Lixeiras/Azul"]
+position = Vector2(77, 6.981563)
+scale = Vector2(0.91527337, 0.8761523)
+texture = ExtResource("10_kljns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Azul"]
+position = Vector2(77, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Lixeiras/Azul"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Azul/StaticBody2D2"]
+position = Vector2(44, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="Verde" type="Area2D" parent="Lixeiras"]
+script = ExtResource("13_kljns")
+
+[node name="LixeiraVerde" type="Sprite2D" parent="Lixeiras/Verde"]
+position = Vector2(60, 7)
+scale = Vector2(0.88328123, 0.90421855)
+texture = ExtResource("11_jklee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Verde"]
+position = Vector2(60, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Lixeiras/Verde"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Verde/StaticBody2D3"]
+position = Vector2(60, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="Vermelha" type="Area2D" parent="Lixeiras"]
+script = ExtResource("15_jklee")
+
+[node name="LixeiraVermelha" type="Sprite2D" parent="Lixeiras/Vermelha"]
+position = Vector2(43, 7)
+scale = Vector2(0.9306249, 0.8766328)
+texture = ExtResource("12_b3yxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Vermelha"]
+position = Vector2(44, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Lixeiras/Vermelha"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Vermelha/StaticBody2D3"]
+position = Vector2(77, 9)
+shape = SubResource("RectangleShape2D_w6vrh")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Lixeiras/Vermelha"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixeiras/Vermelha/StaticBody2D4"]
+position = Vector2(77, 9)
+shape = SubResource("RectangleShape2D_w6vrh")

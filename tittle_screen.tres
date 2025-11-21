@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://p87e6uc4r3hd"]
+
+[ext_resource type="FontFile" uid="uid://k75ty2064cg4" path="res://Star Crush.ttf" id="1_qtkc4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilrr5"]
+bg_color = Color(0.83137256, 0.50980395, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.8509804, 0.23921569, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e3lk"]
+bg_color = Color(0.83137256, 0.50980395, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.8509804, 0.23921569, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5frun"]
+bg_color = Color(1, 0.84800005, 0.24000001, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.8509804, 0.23921569, 1)
+border_blend = true
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kd4wp"]
+bg_color = Color(0.83137256, 0.50980395, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.8509804, 0.23921569, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[resource]
+default_font = ExtResource("1_qtkc4")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_qtkc4")
+Button/styles/focus = SubResource("StyleBoxFlat_ilrr5")
+Button/styles/hover = SubResource("StyleBoxFlat_8e3lk")
+Button/styles/normal = SubResource("StyleBoxFlat_5frun")
+Button/styles/pressed = SubResource("StyleBoxFlat_kd4wp")
