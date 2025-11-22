@@ -75,6 +75,7 @@ Responsável por:
 Item básico com potencial para:
 - Sistema de plantio
 - Coleta
+- Pesca
 - Evolução por estágios
 
 ---------------------------------------------------------------------
