@@ -35,7 +35,7 @@
 
 * **[Gustavo Henrique Tomaz da Silva]:** [22001161] [Scrum Master (SM)]
 * **[Lucas de Oliveira Barreiro]:** [22000100]  [Product Owner (PO)]
-* **[Fernando Pagliarini Furlanetto ]:** [22000293] [Membro da equipe]
+* **[Fernando Pagliarini Furlanetto]:** [22000293] [Membro da equipe]
 * **[Geovana Neuberger Sorg]:** [22001825] [Membro da equipe]
 * **[Kayque Silva Zanelli]:** [24001664] [Membro da equipe]
 * **[Diogo Daloca Alves]:** [24001784] [Membro da equipe]
@@ -1323,6 +1323,7 @@ O sistema de recompensas foca na motivação recompensadora, reforçando a sensa
 
 ### 12.3 Escopo do MVP (Produto Mínimo Viável)
 O MVP inclui a jornada principal completa, 3 zonas principais (inicial, intermediária e avançada), contendo mais de 3 animais-chave e todas as mecânicas centrais de restauração.
+
 
 
 
