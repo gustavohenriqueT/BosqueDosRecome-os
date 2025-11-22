@@ -1,6 +1,6 @@
 # 🌿 Bosque dos Recomeços
 
-Bosque dos Recomeços é um protótipo de jogo desenvolvido em Godot Engine 4, ambientado em um bosque 2D com elementos naturais, movimentação de personagem e interações simples. O projeto serve como base para futuras mecânicas como coleta, plantio, NPCs, diálogos e missões.
+Bosque dos Recomeços é um protótipo de jogo desenvolvido em Godot Engine 4 que promove conscientização ambiental por meio de uma experiência interativa em um bosque 2D. Com foco em sustentabilidade, o jogo incentiva o cuidado com a natureza através de mecânicas de coleta responsável, plantio, manejo de recursos e equilíbrio ecológico. Além da exploração e das interações simples, o projeto busca introduzir conceitos de preservação ambiental alinhados às ODS da ONU, especialmente a ODS 13 (Ação Contra a Mudança Global do Clima) e ODS 15 (Vida Terrestre). A longo prazo, o jogo pretende expandir com NPCs, diálogos educativos, sistema de missões e evolução do ecossistema, reforçando a importância da relação entre o jogador e o meio ambiente.
 
 ---------------------------------------------------------------------
 
