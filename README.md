@@ -7,7 +7,7 @@ Bosque dos Recomeços é um protótipo de jogo desenvolvido em Godot Engine 4, a
 ## 📘 Documentação (PI / GDD)
 
 Acessar GDD do Projeto:
-PI gdd.md
+[Abrir GDD](PI_gdd.md)
 
 ---------------------------------------------------------------------
 
