@@ -311,7 +311,7 @@ A história começa com a personagem principal, a Lummi, adormecendo em um bosqu
 
 
 ### 4.2 Animais Notáveis (NPCs)
-O jogo contará com a presença de animais ao longo da história do jogo, sendo liberados novos animais a cada ambiente liberado/recuperado após a conclusão de puzzles/quests. Animais como borboletas, pássaros, sapos, cachorros e algumas espécies diferentes de animais considerados "animais místicos" como cogumelos ficaram presentes no bosque dos recomeços, podendo alguns animais estarem transitando e outros presentes de forma estática no cenário/ambiente.
+O jogo contará com a presença de animais ao longo da história do jogo, sendo liberados novos animais a cada ambiente liberado/recuperado após a conclusão de puzzles/quests. Animais como borboletas, coelhos, sapos e algumas espécies diferentes de animais considerados "animais místicos" como cogumelos ficarão presentes no bosque dos recomeços ao decorrer do jogo, podendo alguns animais estarem transitando e outros presentes de forma estática no cenário/ambiente.
 
 
 
@@ -1323,6 +1323,7 @@ O sistema de recompensas foca na motivação recompensadora, reforçando a sensa
 
 ### 12.3 Escopo do MVP (Produto Mínimo Viável)
 O MVP inclui a jornada principal completa, 3 zonas principais (inicial, intermediária e avançada), contendo mais de 3 animais-chave e todas as mecânicas centrais de restauração.
+
 
 
 
