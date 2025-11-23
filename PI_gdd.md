@@ -857,9 +857,10 @@ A interface será minimalista e integrada ao mundo do jogo para maximizar a imer
 
 
 ### 7.1 Layout Geral
-- **Tela Inicial:** Nome do jogo com ícones e gifs de animais passando sobre a tela e com o botão de "Iniciar Jogo", tendo forte influência do jogo **Stardew Valley**.
+- **Tela Inicial:** Animação com o nome do jogo passando sobre a tela em um ambiente de natureza (idealizando um bosque) e com os botões de "Start" (para iniciar jogo) e "Quit Game" (para fechar o jogo), tendo forte influência do jogo **Stardew Valley**.
 - **Tela de Jogo:**
-    - **HUD Mínimo:** Sem barras de vida ou energia. Apenas um discreto indicador de progresso (ex: barra indicando os Pontos de Áurea) e uma hotbar para acessar o inventário podem aparecer quando necessário.
+    - **Menu do jogo:** Menu com característica visual minimalista, sendo acessado ao apertar o botão "M" do teclado. Este Menu apresenta botões de regulagem do volume do jogo, de continuar o jogo e de sair do jogo, sendo todos estes botões representados pelo fundo verde (representando a natureza do bosque).
+    - **HUD Mínimo:** Sem barras de vida ou energia. Apenas um discreto indicador de progresso (ex: barra indicando os Pontos de Áurea) e uma hotbar, para acessar o inventário, podem aparecer quando necessário.
     - **Caixas de Diálogo:** Simples e elegantes, aparecendo acima da cabeça dos personagens, no formato de balão.
 
 
