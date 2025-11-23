@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://cbr0wsklg2vnc"]
+[gd_scene load_steps=90 format=3 uid="uid://cbr0wsklg2vnc"]
 
 [ext_resource type="Script" uid="uid://cqhj6hvbwo8dw" path="res://principal.gd" id="1_7cuts"]
 [ext_resource type="PackedScene" uid="uid://dgi64u67vo1ur" path="res://cenário_grama.tscn" id="1_m7tbw"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://deq43ulbi812h" path="res://sapo.tscn" id="43_a20yj"]
 [ext_resource type="Script" uid="uid://b64v7letyd0i8" path="res://coelho_spawner.gd" id="44_afqqb"]
 [ext_resource type="PackedScene" uid="uid://0bhdrugix3aw" path="res://coelho.tscn" id="45_n873l"]
+[ext_resource type="PackedScene" uid="uid://0trdy8gubuly" path="res://pause_menu.tscn" id="46_d61ut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uvwpy"]
 shader = ExtResource("4_jmlps")
@@ -1405,6 +1406,9 @@ cena_sapo = ExtResource("43_a20yj")
 position = Vector2(1450, 323)
 script = ExtResource("44_afqqb")
 cena_coelho = ExtResource("45_n873l")
+
+[node name="PauseMenu" parent="." instance=ExtResource("46_d61ut")]
+visible = false
 
 [connection signal="body_entered" from="Plantacao/Tomate" to="Plantacao/Tomate" method="_on_body_entered"]
 [connection signal="body_exited" from="Plantacao/Tomate" to="Plantacao/Tomate" method="_on_body_exited"]
