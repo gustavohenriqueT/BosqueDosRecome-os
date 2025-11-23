@@ -1,5 +1,8 @@
 extends Area2D
 
+signal colhido
+signal plantado
+
 var lumi_ref: Node2D = null
 var aura_dada := false
 var estado := "vazio"
@@ -34,6 +37,8 @@ func plantar_morango():
 
 	estado = "crescendo"
 	Dados.sementeMorango -= 1
+	
+	emit_signal("plantado")
 
 	show()
 	$AnimatedSprite2D.frame = 0
@@ -73,4 +78,5 @@ func _dar_aura():
 func colher_morango():
 	print("Morango colhido!")
 	Dados.morango += 1
+	emit_signal("colhido")
 	queue_free()

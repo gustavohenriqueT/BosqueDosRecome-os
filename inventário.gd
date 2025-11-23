@@ -1,9 +1,7 @@
 extends Area2D
 
-
 func _ready() -> void:
 	$Invetario.hide()
-
 
 func _process(delta: float) -> void:
 	pass

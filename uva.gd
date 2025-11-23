@@ -1,5 +1,8 @@
 extends Area2D
 
+signal colhido
+signal plantado
+
 var lumi_ref: Node2D = null 
 var aura_dada := false
 var estado := "vazio"
@@ -11,12 +14,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if lumi_ref and Input.is_action_just_pressed("ui_accept") and estado == "vazio":
 		if lumi_ref.has_node("AuraController"):
-			lumi_ref.get_node("AuraController").emit_event("plant")		
+			lumi_ref.get_node("AuraController").emit_event("plant")        
 		plantar_uva()
 
 	if lumi_ref and Input.is_action_just_pressed("colher") and estado == "maduro":
 		if lumi_ref.has_node("AuraController"):
-			lumi_ref.get_node("AuraController").emit_event("harvest")	
+			lumi_ref.get_node("AuraController").emit_event("harvest")    
 		colher_uva()
 		
 func _on_body_entered(body: Node2D) -> void:
@@ -34,6 +37,7 @@ func plantar_uva():
 
 	estado = "crescendo"
 	Dados.sementeUva -= 1
+	emit_signal("plantado")
 
 	show()
 	$AnimatedSprite2D.frame = 0
@@ -74,4 +78,5 @@ func _dar_aura():
 func colher_uva():
 	print("Uva colhida!")
 	Dados.uva += 1
+	emit_signal("colhido")
 	queue_free()

@@ -102,20 +102,6 @@ func coletar_lixo(tipo: String):
 	print("Pegou lixo:", tipo)
 	_mostrar_feedback("Pegou lixo: " + tipo.capitalize(), Color.CYAN)
 
-func entregar_lixo(tipo_lixeira: String):
-	if lixo_carregado == "":
-		_mostrar_feedback("Não está carregando nada!", Color.GRAY)
-		return
-
-	if lixo_carregado == tipo_lixeira:
-		add_aura(10)
-		_mostrar_feedback("Lixo certo! +10 aura", Color.GREEN)
-	else:
-		add_aura(-5)
-		_mostrar_feedback("Lixo errado! -5 aura", Color.RED)
-
-	lixo_carregado = ""
-
 func add_aura(amount: int):
 	aura_points += amount
 	print("Pontos de aura:", aura_points)
@@ -161,12 +147,14 @@ func _on_semente_uva_body_entered(body: Node2D) -> void:
 
 func _on_pesca_body_entered(body):
 	if body.name == "Lumi":
+		$"../../sistemaPesca/AnimationPlayer".play("pescando")
 		$balao.visible = true
 		$balao.modulate.a = 1
 		Dados.pescar = true
 
 func _on_pesca_body_exited(body: Node2D) -> void:
 	if body.name == "Lumi":
+		$"../../sistemaPesca/AnimationPlayer".play("RESET")
 		$balao.visible = false
 		$"../../sistemaPesca/barra".visible = false
 		Dados.pescar = false

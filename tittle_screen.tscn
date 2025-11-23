@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckx0up58j4uq2"]
+[gd_scene load_steps=11 format=3 uid="uid://ckx0up58j4uq2"]
 
 [ext_resource type="Texture2D" uid="uid://d00yu44lm5lo" path="res://Bc.png" id="1_sldaq"]
 [ext_resource type="Script" uid="uid://dtijygsa7d1j2" path="res://tittle_screen.gd" id="1_u0d8r"]
+[ext_resource type="VideoStream" uid="uid://ci1raxpnw8jik" path="res://bc.ogv" id="2_envks"]
 [ext_resource type="Theme" uid="uid://p87e6uc4r3hd" path="res://tittle_screen.tres" id="2_hh3y5"]
+[ext_resource type="Script" uid="uid://wsfqcvntnr08" path="res://video_stream_player.gd" id="3_niwwa"]
 [ext_resource type="AudioStream" uid="uid://csnwwag7e0q6y" path="res://TittleMusic.wav" id="4_xw133"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0d8r"]
@@ -77,7 +79,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u0d8r")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_envks")
+autoplay = true
+expand = true
+script = ExtResource("3_niwwa")
+
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -136,11 +151,6 @@ autoplay = "rewiew"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xw133")
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start_btt" to="." method="_on_start_btt_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit_btt" to="." method="_on_quit_btt_pressed"]

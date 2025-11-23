@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cbr0wsklg2vnc"]
+[gd_scene load_steps=89 format=3 uid="uid://cbr0wsklg2vnc"]
 
 [ext_resource type="Script" uid="uid://cqhj6hvbwo8dw" path="res://principal.gd" id="1_7cuts"]
 [ext_resource type="PackedScene" uid="uid://dgi64u67vo1ur" path="res://cenário_grama.tscn" id="1_m7tbw"]
@@ -34,13 +34,24 @@
 [ext_resource type="Script" uid="uid://jwc0wa2xsdfa" path="res://milho_inv.gd" id="23_uvwpy"]
 [ext_resource type="Texture2D" uid="uid://bmbks0vhcot4k" path="res://bar.png" id="24_kar7w"]
 [ext_resource type="Script" uid="uid://chxnhjwmrm2yb" path="res://uva_inv.gd" id="27_p6bfq"]
+[ext_resource type="PackedScene" uid="uid://7kovb3tu07fr" path="res://hud_tasks.tscn" id="28_ar4cf"]
+[ext_resource type="Script" uid="uid://b08jljiyjgjg1" path="res://plantacao_menager.gd" id="29_22wpp"]
 [ext_resource type="Texture2D" uid="uid://bicwvsyt4vi7" path="res://barraPesca.png" id="38_3chw3"]
 [ext_resource type="Script" uid="uid://bus7qetd07tuh" path="res://sistema_pesca.gd" id="38_22wpp"]
 [ext_resource type="Script" uid="uid://bmqxgyeywb33" path="res://scripts/aura_controller.gd" id="38_jmlps"]
+[ext_resource type="Script" uid="uid://cb4uofjjfltwt" path="res://canvas_layer.gd" id="39_3chw3"]
 [ext_resource type="Texture2D" uid="uid://ob4buy0oxqm3" path="res://LixoGarrafa.png" id="39_22wpp"]
+[ext_resource type="Script" uid="uid://dcwcsst3b1ajt" path="res://sapo_spawner.gd" id="42_qb6nq"]
+[ext_resource type="PackedScene" uid="uid://deq43ulbi812h" path="res://sapo.tscn" id="43_a20yj"]
+[ext_resource type="Script" uid="uid://b64v7letyd0i8" path="res://coelho_spawner.gd" id="44_afqqb"]
+[ext_resource type="PackedScene" uid="uid://0bhdrugix3aw" path="res://coelho.tscn" id="45_n873l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvwpy"]
+shader = ExtResource("4_jmlps")
+shader_parameter/glow_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_jmlps"]
-offsets = PackedFloat32Array(0.2635135, 1)
+offsets = PackedFloat32Array(0.2635135, 0.722973)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3chw3"]
@@ -50,15 +61,33 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.2, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvwpy"]
-shader = ExtResource("4_jmlps")
-shader_parameter/glow_color = Color(1, 1, 1, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6tcv"]
 size = Vector2(563, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynwup"]
 size = Vector2(89.25, 46)
+
+[sub_resource type="Gradient" id="Gradient_22wpp"]
+offsets = PackedFloat32Array(0.375, 0.8161765)
+colors = PackedColorArray(0, 0.24705882, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ar4cf"]
+gradient = SubResource("Gradient_22wpp")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.485, 0.495)
+
+[sub_resource type="Gradient" id="Gradient_qb6nq"]
+offsets = PackedFloat32Array(0.32352942, 0.6838235)
+colors = PackedColorArray(0.9926706, 0.8036274, 0.19396326, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a20yj"]
+gradient = SubResource("Gradient_qb6nq")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.485, 0.53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpj0s"]
 atlas = ExtResource("7_vwsrf")
@@ -266,7 +295,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("barra/lixo:position")
+tracks/0/path = NodePath("barra/lixopesca:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -283,7 +312,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("barra/lixo:position")
+tracks/0/path = NodePath("barra/lixopesca:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -309,6 +338,24 @@ script = null
 [node name="Lumi" parent="CenárioGrama" instance=ExtResource("2_rrtif")]
 position = Vector2(584, 196)
 
+[node name="AnimatedSprite2D" parent="CenárioGrama/Lumi" index="0"]
+material = SubResource("ShaderMaterial_uvwpy")
+position = Vector2(-20, -90)
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="CenárioGrama/Lumi" index="1"]
+position = Vector2(-18, -81)
+
+[node name="FeedbackLabel" parent="CenárioGrama/Lumi" index="2"]
+visible = true
+z_index = 3
+offset_top = -15.0
+offset_bottom = 8.0
+
+[node name="balao" parent="CenárioGrama/Lumi" index="4"]
+position = Vector2(-35.568497, -107.626396)
+scale = Vector2(0.6747579, 0.6747579)
+
 [node name="AuraController" type="Node" parent="CenárioGrama/Lumi"]
 script = ExtResource("38_jmlps")
 
@@ -318,24 +365,6 @@ z_index = -1
 position = Vector2(-20, -88)
 scale = Vector2(0.4375, 0.46875)
 texture = SubResource("GradientTexture2D_3chw3")
-
-[node name="AnimatedSprite2D" parent="CenárioGrama/Lumi" index="2"]
-material = SubResource("ShaderMaterial_uvwpy")
-position = Vector2(-20, -90)
-frame_progress = 0.0
-
-[node name="CollisionShape2D" parent="CenárioGrama/Lumi" index="3"]
-position = Vector2(-18, -81)
-
-[node name="FeedbackLabel" parent="CenárioGrama/Lumi" index="4"]
-visible = true
-z_index = 3
-offset_top = -15.0
-offset_bottom = 8.0
-
-[node name="balao" parent="CenárioGrama/Lumi" index="6"]
-position = Vector2(-35.568497, -107.626396)
-scale = Vector2(0.6747579, 0.6747579)
 
 [node name="Camera2D" type="Camera2D" parent="CenárioGrama/Lumi"]
 position = Vector2(-31, -26)
@@ -644,6 +673,22 @@ offset_bottom = -17.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 
+[node name="AuraOrbe" type="CanvasLayer" parent="Info"]
+script = ExtResource("39_3chw3")
+
+[node name="OrbeAura" type="TextureProgressBar" parent="Info/AuraOrbe"]
+offset_left = 985.0
+offset_top = 951.0
+offset_right = 1113.0
+offset_bottom = 1079.0
+max_value = 330.0
+value = 50.0
+fill_mode = 3
+texture_under = SubResource("GradientTexture2D_ar4cf")
+texture_progress = SubResource("GradientTexture2D_a20yj")
+
+[node name="HUD_Tasks" parent="Info" instance=ExtResource("28_ar4cf")]
+
 [node name="PuzzleArea_Limpeza" parent="." instance=ExtResource("3_rrtif")]
 position = Vector2(363, 103)
 
@@ -651,6 +696,7 @@ position = Vector2(363, 103)
 position = Vector2(127.5, 56)
 
 [node name="Plantacao" type="Node2D" parent="."]
+script = ExtResource("29_22wpp")
 
 [node name="Tomate" type="Area2D" parent="Plantacao"]
 position = Vector2(0, -8)
@@ -1317,21 +1363,21 @@ position = Vector2(561, 538)
 scale = Vector2(0.28125, 0.28125)
 texture = ExtResource("38_3chw3")
 
-[node name="lixo" type="Area2D" parent="sistemaPesca/barra"]
+[node name="lixopesca" type="Area2D" parent="sistemaPesca/barra"]
 rotation = -0.00019521435
 scale = Vector2(3.5555565, 3.5555565)
 collision_layer = 7
 collision_mask = 7
 
-[node name="lixoMovel" type="Sprite2D" parent="sistemaPesca/barra/lixo"]
-light_mask = 2
-visibility_layer = 2
+[node name="lixopesca" type="Sprite2D" parent="sistemaPesca/barra/lixopesca"]
+light_mask = 7
+visibility_layer = 7
 z_as_relative = false
 position = Vector2(28.85271, 0.0056434125)
 scale = Vector2(0.36499116, 0.36499116)
 texture = ExtResource("39_22wpp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sistemaPesca/barra/lixo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sistemaPesca/barra/lixopesca"]
 position = Vector2(27.841026, -0.1535404)
 shape = SubResource("RectangleShape2D_p6bfq")
 
@@ -1349,7 +1395,16 @@ shape = SubResource("RectangleShape2D_ar4cf")
 libraries = {
 &"": SubResource("AnimationLibrary_a20yj")
 }
-autoplay = "pescando"
+
+[node name="SapoSpawner" type="Node2D" parent="."]
+position = Vector2(479, 589)
+script = ExtResource("42_qb6nq")
+cena_sapo = ExtResource("43_a20yj")
+
+[node name="CoelhoSpawner" type="Node2D" parent="."]
+position = Vector2(1450, 323)
+script = ExtResource("44_afqqb")
+cena_coelho = ExtResource("45_n873l")
 
 [connection signal="body_entered" from="Plantacao/Tomate" to="Plantacao/Tomate" method="_on_body_entered"]
 [connection signal="body_exited" from="Plantacao/Tomate" to="Plantacao/Tomate" method="_on_body_exited"]

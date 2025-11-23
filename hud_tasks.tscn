@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://7kovb3tu07fr"]
+
+[ext_resource type="Script" uid="uid://2fdjl6sci2lj" path="res://hud_tasks.gd" id="1_3r05l"]
+[ext_resource type="AudioStream" uid="uid://bemmc4pv4cdfq" path="res://win.mp3" id="2_hj746"]
+[ext_resource type="AudioStream" uid="uid://cq36m7rma4iqj" path="res://platin.mp3" id="3_yc2cy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj746"]
+bg_color = Color(1, 0.972549, 0.8627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.3647059, 0.2509804, 0.21568628, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r05l"]
+bg_color = Color(1, 0.84313726, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[node name="HUD_Tasks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3r05l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FolhaPapel" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 2.0
+offset_right = 228.0
+offset_bottom = 122.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hj746")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/FolhaPapel"]
+layout_mode = 2
+
+[node name="Titulo" type="Label" parent="CanvasLayer/FolhaPapel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Tasks"
+horizontal_alignment = 1
+
+[node name="ListaTexto" type="RichTextLabel" parent="CanvasLayer/FolhaPapel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="BannerConquista" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.724
+offset_top = -100.0
+offset_right = 135.72424
+offset_bottom = -59.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3r05l")
+
+[node name="Label" type="Label" parent="CanvasLayer/BannerConquista"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "🏆 CONQUISTA DESBLOQUEADA!"
+horizontal_alignment = 1
+
+[node name="SFX_Conquista" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hj746")
+
+[node name="SFX_Platina" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yc2cy")

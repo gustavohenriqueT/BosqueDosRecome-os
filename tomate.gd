@@ -1,5 +1,8 @@
 extends Area2D
 
+signal colhido
+signal plantado 
+
 var lumi_ref: Node2D = null
 var aura_dada := false
 var estado := "vazio"
@@ -16,7 +19,7 @@ func _process(delta: float) -> void:
 
 	if lumi_ref and estado == "maduro" and Input.is_action_just_pressed("colher"):
 		if lumi_ref.has_node("AuraController"):
-			lumi_ref.get_node("AuraController").emit_event("harvest")	
+			lumi_ref.get_node("AuraController").emit_event("harvest")    
 		colher_tomate()
 		
 func _on_body_entered(body: Node2D) -> void:
@@ -34,6 +37,8 @@ func plantar_tomate():
 
 	estado = "crescendo"
 	Dados.sementeTomate -= 1
+	
+	emit_signal("plantado")
 
 	show()
 	$AnimatedSprite2D.frame = 0
@@ -63,12 +68,16 @@ func _dar_aura():
 	aura_dada = true
 	Dados.canteiros_concluidos += 1
 
-	var player = get_tree().get_root().find_child("Lumi", true, false)
-	if player:
-		player.add_aura(aura_reward)
+	if lumi_ref and lumi_ref.has_method("add_aura"):
+		lumi_ref.add_aura(aura_reward)
 		print("Ganhou", aura_reward, "de aura por plantar aqui.")
+	else:
+		var player = get_tree().get_root().find_child("Lumi", true, false)
+		if player:
+			player.add_aura(aura_reward)
 
 func colher_tomate():
 	print("Tomate colhido!")
 	Dados.tomate += 1
+	emit_signal("colhido")
 	queue_free()

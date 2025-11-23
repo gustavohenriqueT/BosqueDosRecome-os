@@ -18,14 +18,22 @@ func _ready():
 	else:
 		print("⚠️ AVISO: AuraCircular não encontrada na Lumi.")
 
+func get_aura() -> int:
+	return aura
+
 func emit_event(event_name: String):
 	var rule = dsl_parser.get_rule(event_name)
 	if rule.is_empty(): return
 
 	var aura_str = str(rule["aura"])
 	if aura_str.is_valid_int():
-		aura += aura_str.to_int()
+		var val = aura_str.to_int()
+		aura += val
 		print("AURA TOTAL: ", aura)
+
+		var hud = get_tree().get_root().find_child("HUD_Tasks", true, false)
+		if hud:
+			hud.checar_progresso_aura(aura)
 
 	apply_glow_effect(rule["glow"])
 

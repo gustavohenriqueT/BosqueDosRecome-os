@@ -6,6 +6,7 @@ func _ready() -> void:
 	if music:
 		_fade_in_music()
 
+
 func _on_start_btt_pressed() -> void:
 	if music:
 		await _fade_out_music("res://principal.tscn")

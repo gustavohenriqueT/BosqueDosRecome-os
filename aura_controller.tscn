@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://de5iumleb44kt"]
+
+[ext_resource type="Script" uid="uid://bmqxgyeywb33" path="res://scripts/aura_controller.gd" id="1_g35ag"]
+
+[node name="AuraController" type="Node"]
+script = ExtResource("1_g35ag")

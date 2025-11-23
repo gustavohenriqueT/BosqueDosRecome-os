@@ -9,12 +9,11 @@ var uva = 0
 var milho = 0
 var morango = 0 
 
-var pescar = false
-
+var pescar: bool = false
+var pescando_agora: bool = false
 
 var canteiros_concluidos = 0
 var coelhos_liberados = false
-
 
 func _ready() -> void:
 	pass
