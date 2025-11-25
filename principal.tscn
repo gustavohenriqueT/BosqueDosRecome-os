@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://cbr0wsklg2vnc"]
+[gd_scene load_steps=97 format=3 uid="uid://cbr0wsklg2vnc"]
 
 [ext_resource type="Script" uid="uid://cqhj6hvbwo8dw" path="res://principal.gd" id="1_7cuts"]
 [ext_resource type="PackedScene" uid="uid://dgi64u67vo1ur" path="res://cenário_grama.tscn" id="1_m7tbw"]
@@ -46,6 +46,9 @@
 [ext_resource type="Script" uid="uid://b64v7letyd0i8" path="res://coelho_spawner.gd" id="44_afqqb"]
 [ext_resource type="PackedScene" uid="uid://0bhdrugix3aw" path="res://coelho.tscn" id="45_n873l"]
 [ext_resource type="PackedScene" uid="uid://0trdy8gubuly" path="res://pause_menu.tscn" id="46_d61ut"]
+[ext_resource type="Script" uid="uid://cqp0j4l084ebp" path="res://tutorial_trigger.gd" id="47_c04q5"]
+[ext_resource type="Script" uid="uid://b0e70pw6u1pf3" path="res://cogumelo_spawner.gd" id="47_hx7d8"]
+[ext_resource type="PackedScene" uid="uid://gi25yeq3evo5" path="res://cogumelo.tscn" id="48_33mu7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uvwpy"]
 shader = ExtResource("4_jmlps")
@@ -89,6 +92,14 @@ width = 128
 height = 128
 fill = 1
 fill_from = Vector2(0.485, 0.53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c04q5"]
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d61ut"]
+size = Vector2(102, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpj0s"]
 atlas = ExtResource("7_vwsrf")
@@ -273,6 +284,9 @@ size = Vector2(20.46875, 18.75)
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpj0s"]
 radius = 7.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c04q5"]
+size = Vector2(339, 41)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrtif"]
 size = Vector2(15, 24)
 
@@ -328,6 +342,9 @@ _data = {
 &"RESET": SubResource("Animation_qb6nq"),
 &"pescando": SubResource("Animation_ar4cf")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx7d8"]
+size = Vector2(20, 115)
 
 [node name="Principal" type="Node2D"]
 script = ExtResource("1_7cuts")
@@ -682,11 +699,20 @@ offset_left = 985.0
 offset_top = 951.0
 offset_right = 1113.0
 offset_bottom = 1079.0
-max_value = 330.0
-value = 50.0
+max_value = 350.0
+value = 150.0
 fill_mode = 3
 texture_under = SubResource("GradientTexture2D_ar4cf")
 texture_progress = SubResource("GradientTexture2D_a20yj")
+
+[node name="TextoAura" type="Label" parent="Info/AuraOrbe"]
+offset_left = 1025.0
+offset_top = 996.0
+offset_right = 1069.0
+offset_bottom = 1039.0
+label_settings = SubResource("LabelSettings_c04q5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUD_Tasks" parent="Info" instance=ExtResource("28_ar4cf")]
 
@@ -695,6 +721,16 @@ position = Vector2(363, 103)
 
 [node name="CollisionShape2D" parent="PuzzleArea_Limpeza" index="1"]
 position = Vector2(127.5, 56)
+
+[node name="Area2D" type="Area2D" parent="PuzzleArea_Limpeza"]
+position = Vector2(-363, -103)
+script = ExtResource("47_c04q5")
+texto_explicativo = "O plástico pode levar até 400 anos para se decompor, contaminando o solo e a vida ao redor. 
+Recolha o lixo e ajude a transformar este espaço em um ambiente limpo e pronto para reciclar e renascer."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea_Limpeza/Area2D"]
+position = Vector2(665, 211.5)
+shape = SubResource("RectangleShape2D_d61ut")
 
 [node name="Plantacao" type="Node2D" parent="."]
 script = ExtResource("29_22wpp")
@@ -1283,6 +1319,15 @@ monitorable = false
 position = Vector2(1317, 540)
 shape = SubResource("CircleShape2D_jpj0s")
 
+[node name="Area2D" type="Area2D" parent="Plantacao"]
+script = ExtResource("47_c04q5")
+texto_explicativo = "Com o solo limpo, é hora de plantar. Cada muda que você coloca aqui fortalece a terra, 
+devolve nutrientes e ajuda a natureza a se recuperar.  Vamos fazer este lugar florescer."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantacao/Area2D"]
+position = Vector2(1453.5, 407.5)
+shape = SubResource("RectangleShape2D_c04q5")
+
 [node name="PortaCasa" type="Area2D" parent="."]
 position = Vector2(1139, 436)
 script = ExtResource("5_ep5lw")
@@ -1390,12 +1435,22 @@ collision_mask = 7
 shape = SubResource("RectangleShape2D_uvwpy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sistemaPesca"]
+visible = false
 shape = SubResource("RectangleShape2D_ar4cf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="sistemaPesca"]
 libraries = {
 &"": SubResource("AnimationLibrary_a20yj")
 }
+
+[node name="Area2D" type="Area2D" parent="sistemaPesca"]
+script = ExtResource("47_c04q5")
+texto_explicativo = "Esta água já foi cheia de vida. Remova o lixo e ajude o rio a se recuperar 
+cada gesto seu traz de volta o equilíbrio e a força do ecossistema."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sistemaPesca/Area2D"]
+position = Vector2(646, 601.5)
+shape = SubResource("RectangleShape2D_hx7d8")
 
 [node name="SapoSpawner" type="Node2D" parent="."]
 position = Vector2(479, 589)
@@ -1406,6 +1461,11 @@ cena_sapo = ExtResource("43_a20yj")
 position = Vector2(1450, 323)
 script = ExtResource("44_afqqb")
 cena_coelho = ExtResource("45_n873l")
+
+[node name="CogumeloSpawner" type="Node2D" parent="."]
+position = Vector2(482, 160)
+script = ExtResource("47_hx7d8")
+cena_cogumelo = ExtResource("48_33mu7")
 
 [node name="PauseMenu" parent="." instance=ExtResource("46_d61ut")]
 visible = false

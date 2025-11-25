@@ -31,6 +31,12 @@ func _on_body_exited(body: Node2D) -> void:
 		lumi_ref = null
 
 func plantar_milho():
+	
+	var hud = get_tree().get_root().find_child("HUD_Tasks", true, false)
+	if hud and hud.fase_atual < 2:
+		print("Bloqueado! Limpe o lixo primeiro.")
+		return
+		
 	if Dados.sementeMilho <= 0:
 		print("Sem sementes de milho.")
 		return

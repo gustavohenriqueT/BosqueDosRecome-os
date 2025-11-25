@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7kovb3tu07fr"]
+[gd_scene load_steps=8 format=3 uid="uid://7kovb3tu07fr"]
 
 [ext_resource type="Script" uid="uid://2fdjl6sci2lj" path="res://hud_tasks.gd" id="1_3r05l"]
+[ext_resource type="FontFile" uid="uid://k75ty2064cg4" path="res://Star Crush.ttf" id="2_5bn6r"]
 [ext_resource type="AudioStream" uid="uid://bemmc4pv4cdfq" path="res://win.mp3" id="2_hj746"]
 [ext_resource type="AudioStream" uid="uid://cq36m7rma4iqj" path="res://platin.mp3" id="3_yc2cy"]
 
@@ -30,6 +31,17 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc2cy"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.09411765, 0.17254902, 0.105882354, 0.9529412)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="HUD_Tasks" type="Control"]
 layout_mode = 3
@@ -82,6 +94,24 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3r05l")
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "🏆 CONQUISTA DESBLOQUEADA!"
+horizontal_alignment = 1
+
+[node name="PainelTutorial" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_top = 795.0
+offset_right = 140.0
+offset_bottom = 823.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yc2cy")
+
+[node name="Label" type="Label" parent="CanvasLayer/PainelTutorial"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5bn6r")
 horizontal_alignment = 1
 
 [node name="SFX_Conquista" type="AudioStreamPlayer" parent="."]

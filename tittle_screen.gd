@@ -9,9 +9,9 @@ func _ready() -> void:
 
 func _on_start_btt_pressed() -> void:
 	if music:
-		await _fade_out_music("res://principal.tscn")
+		await _fade_out_music("res://Intro.tscn")
 	else:
-		get_tree().change_scene_to_file("res://principal.tscn")
+		get_tree().change_scene_to_file("res://Intro.tscn")
 
 func _on_quit_btt_pressed() -> void:
 	get_tree().quit()

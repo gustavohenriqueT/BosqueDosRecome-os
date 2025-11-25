@@ -8,14 +8,18 @@ var pode_pescar: bool = false
 
 func _process(delta: float) -> void:
 	if pode_pescar and Input.is_action_just_pressed("interact"):
-		
+		var hud = get_tree().get_root().find_child("HUD_Tasks", true, false)	
+		if hud and hud.fase_atual < 3:
+			print("Bloqueado! Termine a plantação primeiro.")
+			if hud.has_method("mostrar_tutorial"):
+				hud.mostrar_tutorial("Ainda não é hora de pescar. Preciso terminar a plantação.")
+			return
 		if lumi_ref and lumi_ref.has_node("AuraController"):
 			lumi_ref.get_node("AuraController").emit_event("fish_trash")
-		
-		var hud = get_tree().get_root().find_child("HUD_Tasks", true, false)
 		if hud:
 			hud.progresso_missao("pescar")
 		_realizar_pesca()
+
 
 func _on_area_alvo_area_entered(area: Area2D) -> void:
 	if "lixopesca" in area.name.to_lower():

@@ -99,7 +99,6 @@ scale = Vector2(0.796875, 0.796875)
 sprite_frames = SubResource("SpriteFrames_50ba2")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.10738696
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 13.75)
@@ -108,3 +107,5 @@ shape = SubResource("RectangleShape2D_rvwsc")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
