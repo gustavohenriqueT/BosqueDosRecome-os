@@ -1233,7 +1233,7 @@ O sistema de recompensas foca na motivação recompensadora, reforçando a sensa
 
 ## 11. Matemática
 - **Teoria de Conjuntos:** No inventário do jogo, cada ítem que o jogador possui é representado por um conjunto, apresentando cada conjunto único e exclusivamente do player, sendo basicamente uma lista de elementos sem repetições e ordem específicas. Sendo assim, utilizamos a operação de conjuntos de `diferença()`, responsável por gerenciar os ítens do inventário: "o player usa o ítem e este mesmo é subtraído de seu inventário".
-- **Lógica de Grafos:** Pensando por meio dessa lógica, seguindo os parâmetros de vértices e arestas, onde os vértices representam as missões e as arestas os caminhos a serem seguidos, foi utilizado o algoritmo de BFS (busca em largura), que é usado em todas as tasks que necessitam serem feitas antes de uma missão principal (ex: pegar sementes antes da plantação).
+- **Lógica de Grafos:** Pensando por meio dessa lógica, seguindo os parâmetros de vértices e arestas, onde os vértices representam as missões e as arestas os caminhos a serem seguidos, foi utilizado o algoritmo de FSM (busca em largura), que é usado em todas as tasks que necessitam serem feitas antes de uma missão principal (ex: pegar sementes antes da plantação).
 
 
 
@@ -1324,6 +1324,7 @@ O sistema de recompensas foca na motivação recompensadora, reforçando a sensa
 
 ### 12.3 Escopo do MVP (Produto Mínimo Viável)
 O MVP inclui a jornada principal completa, 3 zonas principais (inicial, intermediária e avançada), contendo mais de 3 animais-chave e todas as mecânicas centrais de restauração.
+
 
 
 
